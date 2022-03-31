@@ -45,6 +45,28 @@ elsif number[-1] == "6"
         puts "#{number} => false"
     end
 
+#if number ends in 5 and 2nd to last digit is 2
+elsif number[-1] == "5"
+    if number[-2] == "2"
+        if number.length == 3
+            if number[-3] == "2" || number[-3] == "6"
+                puts "#{number} => true"
+            else
+                puts "#{number} => false"
+            end
+        elsif number.length == 2
+            if number[-2] == "2"
+                puts "#{number} => true"
+            else
+                puts "#{number} => false"
+            end    
+        else
+            puts "#{number} => false"
+        end
+    else
+        puts "#{number} => false"
+    end
+
 #if digital sum of the number includes perfect square
 else
     str_arr = number.split("")
