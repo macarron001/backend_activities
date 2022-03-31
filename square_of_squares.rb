@@ -1,7 +1,7 @@
 # puts "Enter a number:"
 # number = gets.chomp().to_i
-# result = Math.sqrt(number).to_i
-# if (result * result) == number
+# squared_number = Math.sqrt(number)
+# if (squared_number * squared_number) == number
 #     puts "#{number} => true" 
 # else
 #     puts "#{number} => false"
@@ -23,7 +23,7 @@ elsif number[-1] == "0"
         puts "#{number} => false"
     end
 
-    #if number ends in 6 and 2nd to last digit is odd    
+#if number ends in 6 and 2nd to last digit is odd    
 elsif number[-1] == "6"
     if number[-2] % 2 != 0
         if number.length == 3
