@@ -23,6 +23,28 @@ elsif number[-1] == "0"
         puts "#{number} => false"
     end
 
+    #if number ends in 6 and 2nd to last digit is odd    
+elsif number[-1] == "6"
+    if number[-2] % 2 != 0
+        if number.length == 3
+            if number[-2] == "9"
+                puts "#{number} => true"
+            else
+                puts "#{number} => false"
+            end
+        elsif number.length == 2
+            if number[-2] == "1" || number[-2] == "3"
+                puts "#{number} => true"
+            else
+                puts "#{number} => false"
+            end    
+        else
+            puts "#{number} => false"
+        end
+    else
+        puts "#{number} => false"
+    end
+
 #if digital sum of the number includes perfect square
 else
     str_arr = number.split("")
