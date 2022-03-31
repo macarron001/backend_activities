@@ -16,6 +16,13 @@ perfect_square = [0,1,4,7,9]
 if non_perfect_square.include? number[-1]
     puts "#{number} => false"
 
+#if instance of 0's in the number is odd
+elsif number[-1] == "0"
+    instance_of_0 = number.count("0")
+    if instance_of_0 % 2 != 0
+        puts "#{number} => false"
+    end
+
 #if digital sum of the number includes perfect square
 else
     str_arr = number.split("")
