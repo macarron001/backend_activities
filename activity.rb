@@ -47,15 +47,28 @@
 arr = [6,3,1,8,4,2,10,65,102]
 
 def is_divisible (array)
-    divisible_by_two = Array.new
-    array.map do |number|
-        if number % 2 == 0
-            divisible_by_two.push(number)
-        end
-    end
-    puts divisible_by_two.join(" ")
+    new_array = array.select(&:even?)
+    puts new_array.join(" ")
 end
+
 is_divisible(arr)
+
+# def is_divisible (array)
+#     array.select { |number| number.even?}
+# end
+
+# puts is_divisible(arr)
+
+# def is_divisible (array)
+#     divisible_by_two = Array.new
+#     array.map do |number|
+#         if number % 2 == 0
+#             divisible_by_two.push(number)
+#         end
+#     end
+#     puts divisible_by_two.join(" ")
+# end
+# is_divisible(arr)
 
 # arr = [6,3,1,8,4,2,10,65,102]
 # new_arr = []
@@ -65,3 +78,5 @@ is_divisible(arr)
 #     end
 # end
 # puts new_arr.join(" ")
+
+
