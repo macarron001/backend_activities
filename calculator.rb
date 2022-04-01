@@ -7,11 +7,11 @@
 
 puts "Hello! This is a calculator"
 puts "Enter the first number"
-number1 = gets.chomp().to_i
+number1 = gets.chomp().to_f
 puts "Enter the operator"
 operator = gets.chomp()
 puts "Enter the second number"
-number2 = gets.chomp().to_i
+number2 = gets.chomp().to_f
 
 if operator == "+"
     answer = number1 + number2
