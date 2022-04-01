@@ -1,6 +1,7 @@
 num = 1
 squared_array = []
 number_array = []
+
 while num <= 50
     squared_array.push(num ** 2)
     number_array.push(num)
