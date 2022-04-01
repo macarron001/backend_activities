@@ -31,13 +31,37 @@
 
 #----------------------------------------------------------------
 
-keyword = "STOP"
-input = ""
-while input != keyword
-    puts "Enter anything to get a random number - otherwise STOP"
-    input = gets.chomp()
-    if input == keyword
-        break
+# keyword = "STOP"
+# input = ""
+# while input != keyword
+#     puts "Enter anything to get a random number - otherwise STOP"
+#     input = gets.chomp()
+#     if input == keyword
+#         break
+#     end
+#     puts rand(0...100)
+# end
+
+#----------------------------------------------------------------
+
+arr = [6,3,1,8,4,2,10,65,102]
+
+def is_divisible (array)
+    divisible_by_two = Array.new
+    array.map do |number|
+        if number % 2 == 0
+            divisible_by_two.push(number)
+        end
     end
-    puts rand(0...100)
+    puts divisible_by_two.join(" ")
 end
+is_divisible(arr)
+
+# arr = [6,3,1,8,4,2,10,65,102]
+# new_arr = []
+# arr.map do |number|
+#     if number % 2 == 0
+#         new_arr.push(number)
+#     end
+# end
+# puts new_arr.join(" ")
