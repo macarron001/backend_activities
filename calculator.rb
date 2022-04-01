@@ -5,10 +5,10 @@
 # sum = number1 + number2
 # puts "The sum is #{sum}"
 
-
+puts "Hello! This is a calculator"
 puts "Enter the first number"
 number1 = gets.chomp().to_i
-puts "Enter operator"
+puts "Enter the operator"
 operator = gets.chomp()
 puts "Enter the second number"
 number2 = gets.chomp().to_i
