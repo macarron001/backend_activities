@@ -1,22 +1,4 @@
-number = 1
-
-# case number
-# when %15 == 0
-#     puts "Batch 16"
-# when %3 == 0
-#     puts "Batch"
-# when %5 == 0
-#     puts "16"
-
-# if number %15 == 0
-#     puts "Batch 16"
-# elsif number %3 == 0
-#     puts "Batch"
-# elsif number %5 == 0
-#     puts "16"
-# else
-#     puts"HEHE JAKE HEHE"
-# end
+# EULER #13
 
 numbers = [37107287533902102798797998220837590246510135740250,
 46376937677490009712648124896970078050417018260538,
@@ -124,3 +106,210 @@ numbers = [37107287533902102798797998220837590246510135740250,
 
 puts numbers.sum.to_s.split("").slice(0,10).join("").to_i
 puts numbers.sum.to_s[0,10]
+
+arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+puts arr.reduce(1, :lcm)
+
+puts (1..20).reduce(:lcm)
+
+EULER 1
+
+Benchmark.measure{
+    num = 1
+    sum_arr = []
+    while num < 10
+        if num % 3 == 0 || num % 5 == 0 
+            sum_arr.push(num)
+        end
+        num += 1
+    end
+    puts sum_arr.sum
+}
+
+Benchmark.measure{
+    num = 1
+    sum = 0
+    while num < 1000
+        if num % 3 == 0 || num % 5 == 0 
+            sum += num
+        end
+        num += 1
+    end
+    puts sum
+}
+
+
+Benchmark.measure{
+    num = 1
+    sum = 0
+    while num < 1000
+        sum += num if (num % 3).zero? || (num % 5).zero?
+        num += 1
+    end
+    puts sum
+}
+
+EULER # 5
+Benchmark.measure{
+    arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    puts arr.reduce(1, :lcm)
+}
+
+@cstime=0.0,
+@cutime=0.0,
+@label="",
+@real=4.530000023805769e-05,
+@stime=7.000000000000062e-06,
+@total=4.8999999999986554e-05,
+@utime=4.199999999998649e-05>
+
+Benchmark.measure{
+    puts (1..20).reduce(:lcm)
+}
+
+@cstime=0.0,
+@cutime=0.0,
+@label="",
+@real=3.90000000152213e-05,
+@stime=5.999999999999062e-06,
+@total=3.8000000000031064e-05,
+@utime=3.2000000000032e-05>
+
+
+EULER # 14
+
+num = 12
+arr = [num]
+while num != 1
+    if num % 2 == 0
+        num = num / 2
+        arr.push(num)
+    elsif num % 2 != 0
+        num = (3 * num) + 1
+        arr.push(num)
+    else
+        puts "HEHE"
+    end
+end
+print arr
+
+num = 26
+arr = [num]
+while num != 1
+    if num % 2 == 0
+        num = num / 2
+        arr.push(num)
+    else
+        num = (3 * num) + 1
+        arr.push(num)
+    end
+end
+print arr
+
+num = 26
+arr = [num]
+while num != 1
+    if num.even?
+        num = num / 2
+        arr.push(num)
+    else
+        num = (3 * num) + 1
+        arr.push(num)
+    end
+end
+print arr
+
+def to_one (num)
+    arr = [num]
+    while num != 1
+        if num.even?
+            num = num / 2
+            arr.push(num)
+        else
+            num = (3 * num) + 1
+            arr.push(num)
+        end
+    end
+    arr
+end
+
+def get_longest
+    max = 1000000
+    num = 1
+    highest_num = 0
+    current_highest = 0
+    while num < max
+        terms = to_one(num)
+        if terms.count > current_highest
+            current_highest = terms.count
+            highest_num = num
+        end
+        num += 1
+    end
+    puts current_highest
+    puts highest_num
+end
+
+get_longest
+
+def get_longest
+  max = 1000000
+  num = 1
+  current_max = 0
+  while num < max
+      arr = [num]
+      while num != 1
+          if num.even?
+              num = num / 2
+              arr.push(num)
+          else
+              num = (3 * num) + 1
+              arr.push(num)
+          end
+      end
+      num += 1
+  end
+  puts current_max
+end
+
+get_longest
+
+#------------------------------------
+
+def to_five(num)
+  return (num.to_i) **5
+end
+
+
+def to_splet(num)
+  return num.to_s.split("")
+end
+
+def to_sum(num)
+  return num.map(&:to_i).reduce(:+)
+end
+
+
+def to_fifth
+  num = 2
+  answer = 0
+  arr_sum = []
+  arr_fours = []
+  arr_possible = []
+  while num < 355000
+    num_arr = to_splet(num)
+    num_arr.each do |num|
+      ans = to_five(num)
+      arr_fours.push(ans)
+    end
+    arr_sum.push(arr_fours.sum) 
+    arr_fours = []
+    if arr_sum[-1] == num
+      answer += num
+    end
+    num += 1
+  end
+  puts answer
+end
+
+to_fifth
