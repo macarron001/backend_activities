@@ -171,71 +171,182 @@
 # bananaCakeOne.bake
 
 
-module AdminPermisson
-  def edit_users_profile
-    puts "Admin updated all users profile"
-  end
-end
+# module AdminPermisson
+#   def edit_users_profile
+#     puts "Admin updated all users profile"
+#   end
+# end
 
-module BuyerPermission
-  def buy
-    puts "Buyer has bought an item"
-  end
-end
+# module BuyerPermission
+#   def buy
+#     puts "Buyer has bought an item"
+#   end
+# end
 
-class User
+# class User
 
-  def initialize(username, password, ip_address)
-    @username = username
-    @password = password
-    @ip_address = ip_address
-  end
+#   def initialize(username, password, ip_address)
+#     @username = username
+#     @password = password
+#     @ip_address = ip_address
+#   end
 
-  def change_password=(password)
-    password_changer(password)
-    puts "Password changed!"
-  end
+#   def change_password=(password)
+#     password_changer(password)
+#     puts "Password changed!"
+#   end
 
   
-  protected
-  def login
-    puts "User logged in. IP address: #{@ip_address}"
-  end
+#   protected
+#   def login
+#     puts "User logged in. IP address: #{@ip_address}"
+#   end
 
-  def password_changer(password)
-    @password = password
-  end
+#   def password_changer(password)
+#     @password = password
+#   end
 
+# end
+
+
+# class Admin < User
+#   include AdminPermisson
+#   def admin_login
+#     self.login
+#   end
+# end
+
+
+# class Buyer < User
+#   include BuyerPermission
+#   def buyer_login
+#     self.login
+#   end
+# end
+
+
+
+# ## execute
+
+# my_admin = Admin.new('avionuser', 'password', '127.0.0.1')
+# my_admin.admin_login
+# my_admin.edit_users_profile
+
+# my_admin.change_password = 'new_password'
+
+# buyer = Buyer.new('juan', 'password', '127.0.0.1')
+# buyer.buyer_login
+# buyer.buy
+
+# buyer.change_password = 'new_password'
+
+
+
+#ENCAPSULATION
+# class Transaction
+#   def initialize(quantity, price)
+#     @quantity = quantity
+#     @price = price
+#   end
+
+#   def total
+#     @quantity * @price
+#   end
+# end
+
+# transact = Transaction.new(5, 100)
+# puts transact.total
+
+
+#ABSTRACTION
+# class Transaction
+
+#   def initialize(quantity, price, discount=false)
+#     @quantity = quantity
+#     @price = price
+#     @discount = discount
+#   end
+
+#   def total_transaction
+#     total_price - get_discount
+#   end
+
+#   private
+
+#   def total_price
+#     @quantity * @price
+#   end
+
+#   def get_discount
+#     discount_price = @discount ? 10 : 0
+#   end
+# end
+
+# transact = Transaction.new(10, 899, true)
+# puts transact.total_transaction
+
+#POLYMMORPHISM : INHERITANCE
+
+# class Person
+#   def initialize(first, last, age)
+#     @first_name = first
+#     @last_name = last
+#     @age = age
+#   end
+
+#   def birthday
+#     @age += 1
+#   end
+
+#   def introduce
+#     puts "Hi everyone. My name is #{@first_name} #{@last_name}"
+#   end
+# end
+
+# class Student < Person
+#   def introduce
+#     puts "Hello teacher. My name is  My name is #{@first_name} #{@last_name}"
+#   end
+# end
+
+# class Teacher < Person
+#   def introduce
+#     puts "Hello class.  My name is #{@first_name} #{@last_name}"
+#   end
+# end
+
+# john = Student.new("John", "Doe", 18)
+# john.introduce
+# imee = Teacher.new("Imee", "Santos", 35)
+# imee.introduce
+
+
+#POLYMMORPHISM : DUCK-TYPING
+
+class Payment
+
+  def type(payment)
+    payment.type
+  end
 end
 
+class FullyPaid
 
-class Admin < User
-  include AdminPermisson
-  def admin_login
-    self.login
+  def type
+    puts "Full paid payment"
   end
 end
 
+class Installment
 
-class Buyer < User
-  include BuyerPermission
-  def buyer_login
-    self.login
+  def type
+    puts "Installment payment"
   end
 end
 
+customer_payment = Payment.new
+full = FullyPaid.new
+customer_payment.type(full)
 
-
-## execute
-
-my_admin = Admin.new('avionuser', 'password', '127.0.0.1')
-my_admin.admin_login
-my_admin.edit_users_profile
-
-my_admin.change_password = 'new_password'
-
-buyer = Buyer.new('juan', 'password', '127.0.0.1')
-buyer.buyer_login
-buyer.buy
-
-buyer.change_password = 'new_password'
+installment = Installment.new
+customer_payment.type(installment)
