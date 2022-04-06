@@ -115,44 +115,44 @@ puts (1..20).reduce(:lcm)
 EULER 1
 
 Benchmark.measure{
-    num = 1
-    sum_arr = []
-    while num < 10
-        if num % 3 == 0 || num % 5 == 0 
-            sum_arr.push(num)
-        end
-        num += 1
+  num = 1
+  sum_arr = []
+  while num < 10
+    if num % 3 == 0 || num % 5 == 0 
+      sum_arr.push(num)
     end
-    puts sum_arr.sum
+    num += 1
+  end
+  puts sum_arr.sum
 }
 
 Benchmark.measure{
-    num = 1
-    sum = 0
-    while num < 1000
-        if num % 3 == 0 || num % 5 == 0 
-            sum += num
-        end
-        num += 1
+  num = 1
+  sum = 0
+  while num < 1000
+    if num % 3 == 0 || num % 5 == 0 
+      sum += num
     end
-    puts sum
+    num += 1
+  end
+  puts sum
 }
 
 
 Benchmark.measure{
-    num = 1
-    sum = 0
-    while num < 1000
-        sum += num if (num % 3).zero? || (num % 5).zero?
-        num += 1
-    end
-    puts sum
+  num = 1
+  sum = 0
+  while num < 1000
+    sum += num if (num % 3).zero? || (num % 5).zero?
+    num += 1
+  end
+  puts sum
 }
 
 EULER # 5
 Benchmark.measure{
-    arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    puts arr.reduce(1, :lcm)
+  arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+  puts arr.reduce(1, :lcm)
 }
 
 @cstime=0.0,
@@ -164,7 +164,7 @@ Benchmark.measure{
 @utime=4.199999999998649e-05>
 
 Benchmark.measure{
-    puts (1..20).reduce(:lcm)
+  puts (1..20).reduce(:lcm)
 }
 
 @cstime=0.0,
@@ -181,73 +181,73 @@ EULER # 14
 num = 12
 arr = [num]
 while num != 1
-    if num % 2 == 0
-        num = num / 2
-        arr.push(num)
-    elsif num % 2 != 0
-        num = (3 * num) + 1
-        arr.push(num)
-    else
-        puts "HEHE"
-    end
+  if num % 2 == 0
+    num = num / 2
+    arr.push(num)
+  elsif num % 2 != 0
+    num = (3 * num) + 1
+    arr.push(num)
+  else
+    puts "HEHE"
+  end
 end
 print arr
 
 num = 26
 arr = [num]
 while num != 1
-    if num % 2 == 0
-        num = num / 2
-        arr.push(num)
-    else
-        num = (3 * num) + 1
-        arr.push(num)
-    end
+  if num % 2 == 0
+    num = num / 2
+    arr.push(num)
+  else
+    num = (3 * num) + 1
+    arr.push(num)
+  end
 end
 print arr
 
 num = 26
 arr = [num]
 while num != 1
-    if num.even?
-        num = num / 2
-        arr.push(num)
-    else
-        num = (3 * num) + 1
-        arr.push(num)
-    end
+  if num.even?
+    num = num / 2
+    arr.push(num)
+  else
+    num = (3 * num) + 1
+    arr.push(num)
+  end
 end
 print arr
 
 def to_one (num)
-    arr = [num]
-    while num != 1
-        if num.even?
-            num = num / 2
-            arr.push(num)
-        else
-            num = (3 * num) + 1
-            arr.push(num)
-        end
+  arr = [num]
+  while num != 1
+    if num.even?
+      num = num / 2
+      arr.push(num)
+    else
+      num = (3 * num) + 1
+      arr.push(num)
     end
-    arr
+  end
+  arr
 end
 
 def get_longest
-    max = 1000000
-    num = 1
-    highest_num = 0
-    current_highest = 0
-    while num < max
-        terms = to_one(num)
-        if terms.count > current_highest
-            current_highest = terms.count
-            highest_num = num
-        end
-        num += 1
+  max = 1000000
+  num = 1
+  highest_num = 0
+  current_highest = 0
+  while num < max
+    terms = to_one(num)
+    if terms.count > current_highest
+      current_highest = terms.count
+      highest_num = num
     end
-    puts current_highest
-    puts highest_num
+    num += 1
+  end
+  puts current_highest
+  puts highest_num
 end
 
 get_longest
@@ -257,17 +257,17 @@ def get_longest
   num = 1
   current_max = 0
   while num < max
-      arr = [num]
-      while num != 1
-          if num.even?
-              num = num / 2
-              arr.push(num)
-          else
-              num = (3 * num) + 1
-              arr.push(num)
-          end
+    arr = [num]
+    while num != 1
+      if num.even?
+        num = num / 2
+        arr.push(num)
+      else
+        num = (3 * num) + 1
+        arr.push(num)
       end
-      num += 1
+    end
+    num += 1
   end
   puts current_max
 end
