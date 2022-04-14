@@ -30,3 +30,37 @@
 # select AVG(age) from students;
 # select * from students where location = 'Manila';
 # select count(id) from students;
+
+# create table classrooms (
+#   id serial PRIMARY KEY,
+#   student_id integer,
+#   section text
+# );
+
+# insert into classrooms (student_id, section)
+# values (10, 'C');
+
+# select c.section, s. first_name, s.last_name from students s inner join classrooms c on c.student_id = s.id;
+# select c.section, s. first_name, s.last_name from students s left join classrooms c on c.student_id = s.id;
+# select c.section, s. first_name, s.last_name from students s right join classrooms c on c.student_id = s.id;
+# select c.section, s. first_name, s.last_name from students s full join classrooms c on c.student_id = s.id;
+
+# select
+#   c.section,
+#   s.first_name,
+#   s.last_name
+# from students s
+#   full join classrooms c on c.student_id = s.id;
+
+# SELECT
+#   c.section,
+#   s.first_name,
+#   s.last_name,
+#   s.id
+# FROM students s
+#   FULL JOIN classrooms c on c.student_id = s.id
+# WHERE
+#   c.section = 'A'
+#   AND s.id > 1
+# ORDER BY
+#   s.id DESC;
